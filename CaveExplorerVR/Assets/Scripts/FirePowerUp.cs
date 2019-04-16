@@ -15,7 +15,7 @@ public class FirePowerUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.Two) && PowerUps.redPower)
+        if (OVRInput.GetDown(OVRInput.Button.Three) && PowerUps.redPower)
         {
             shootFireBolt();
         }

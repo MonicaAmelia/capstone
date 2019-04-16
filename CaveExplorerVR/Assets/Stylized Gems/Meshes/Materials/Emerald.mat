@@ -68,12 +68,12 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Reflection: 0.282
+    - _Reflection: 0.25
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emisson: {r: 0.084775075, g: 0.3602941, b: 0.084775075, a: 1}
-    - _TintColor: {r: 0.018166086, g: 0.35294116, b: 0.06669011, a: 1}
+    - _Emisson: {r: 0.022058845, g: 1, b: 0.022058845, a: 1}
+    - _TintColor: {r: 0, g: 0, b: 0, a: 1}

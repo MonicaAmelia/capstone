@@ -4,9 +4,8 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: Onyx
   m_Shader: {fileID: 4800000, guid: 65c37cd51cb211c458db3b4fe580c5f5, type: 3}
   m_ShaderKeywords: 
@@ -71,7 +70,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Reflection: 0.314
+    - _Reflection: 0.25
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1

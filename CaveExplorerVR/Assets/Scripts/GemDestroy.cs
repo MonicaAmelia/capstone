@@ -20,24 +20,25 @@ public class GemDestroy : MonoBehaviour {
         if ((OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.5 && leftHandHitBox.bounds.Intersects(gemHitBox.bounds))
             || (OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.5 && rightHandHitBox.bounds.Intersects(gemHitBox.bounds)))
         {
-            colorCheck();
+            ColorCheck();
             gemNoise.Play();
-            gameObject.GetComponent<Renderer>().enabled = false;
-            gameObject.GetComponent<Collider>().enabled = false;
+            Destroy(gameObject);
+            //gameObject.GetComponent<Renderer>().enabled = false;
+            //gameObject.GetComponent<Collider>().enabled = false;
             
             
         }
     }
 
-    public void colorCheck()
+    public void ColorCheck()
     {
         switch (gemColor)
         {
-            case "Yellow": PowerUps.yellowPower = true; break;
-            case "Red": PowerUps.redPower = true; break;
-            case "Green": PowerUps.greenPower = true; break;
-            case "Black": PowerUps.blackPower = true; break;
-
+            case "Yellow": PowerUps.yellowPower = true; PowerUps.money += 10; break;
+            case "Red": PowerUps.redPower = true; PowerUps.money += 25; break;
+            case "Green": PowerUps.greenPower = true; PowerUps.money += 50; break;
+            case "Black": PowerUps.blackPower = true; PowerUps.money += 75; break;
+            case "Blue": PowerUps.money += 100; break;
         }
     }
 }

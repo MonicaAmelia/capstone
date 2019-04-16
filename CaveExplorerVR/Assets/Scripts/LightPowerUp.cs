@@ -6,6 +6,7 @@ public class LightPowerUp : MonoBehaviour
 {
     public Transform handTransform;
     public GameObject lamp;
+    public AudioSource pop;
     // Use this for initialization
     void Start () {
         
@@ -18,6 +19,7 @@ public class LightPowerUp : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && PowerUps.yellowPower)
         {
             spawnLamp();
+            pop.Play();
         }
     }
 
@@ -25,8 +27,9 @@ public class LightPowerUp : MonoBehaviour
 
     void spawnLamp()
     {
-        Instantiate(lamp, handTransform.position, handTransform.rotation);
-        
+        //Instantiate(lamp, handTransform.position, handTransform.rotation);
+        GameObject obj = Instantiate(lamp, handTransform.position, handTransform.rotation);
+        Destroy(obj,30f);
     }
 
     IEnumerator delay(float time)

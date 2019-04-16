@@ -6,6 +6,7 @@ CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
+//Edited by Eric Reed
 
 using UnityEngine;
 using System.Collections;
@@ -23,6 +24,8 @@ public class TeleportTransitionWarp : TeleportTransition
 	[Tooltip("How much time the warp transition takes to complete.")]
 	[Range(0.01f, 1.0f)]
 	public float TransitionDuration = 0.5f;
+
+    public AudioSource zoom;
 
 	/// <summary>
 	/// Curve to control the position lerp between the current location and the destination.
@@ -59,7 +62,8 @@ public class TeleportTransitionWarp : TeleportTransition
 			LocomotionTeleport.DoWarp(startPosition, pLerp);
 			yield return null;
 		}
-		LocomotionTeleport.DoWarp(startPosition, 1.0f);
+        zoom.Play();
+        LocomotionTeleport.DoWarp(startPosition, 1.0f);
 		LocomotionTeleport.IsTransitioning = false;
 	}
 }

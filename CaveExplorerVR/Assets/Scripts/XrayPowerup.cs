@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class XrayPowerup : MonoBehaviour {
 
-	// Use this for initialization
+    // Use this for initialization
+    public Material xRayStuff;
+    public Material reg;
+    public AudioSource zap;
 	void Start () {
-		
-	}
+        gameObject.GetComponent<Collider>().enabled = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (OVRInput.Get(OVRInput.Button.One) && PowerUps.blackPower)
+        //TODO change button
+        if (OVRInput.Get(OVRInput.Button.Two) && PowerUps.blackPower)
         {
             ShowXray();
         }
@@ -21,10 +25,13 @@ public class XrayPowerup : MonoBehaviour {
 
     void ShowXray()
     {
-        gameObject.GetComponent<Renderer>().enabled = true;
+        gameObject.GetComponent<Renderer>().material = xRayStuff;
+        gameObject.GetComponent<Collider>().enabled = false;
     }
     void hideXray()
     {
-        gameObject.GetComponent<Renderer>().enabled = false;
+        zap.Play();
+        gameObject.GetComponent<Renderer>().material = reg;
+        gameObject.GetComponent<Collider>().enabled = true;
     }
 }

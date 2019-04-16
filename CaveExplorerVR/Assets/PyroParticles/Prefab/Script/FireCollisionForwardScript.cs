@@ -21,8 +21,6 @@ namespace DigitalRuby.PyroParticles
         public void OnCollisionEnter(Collision col)
         {
             CollisionHandler.HandleCollision(gameObject, col);
-            //Tanner and Monica made this line
-            GameObject.Destroy(gameObject);
         }
     }
 }

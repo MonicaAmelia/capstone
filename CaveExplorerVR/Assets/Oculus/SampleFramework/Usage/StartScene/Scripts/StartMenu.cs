@@ -12,8 +12,17 @@ public class StartMenu : MonoBehaviour
 
     void Start()
     {
-        DebugUIBuilder.instance.AddLabel("Select Sample Scene");
-        DebugUIBuilder.instance.AddButton("Avatar Grab", LoadAvatarGrab);
+        int high_score = 0;
+        if (PowerUps.money > high_score)
+        {
+            high_score = PowerUps.money;
+        }
+
+        DebugUIBuilder.instance.AddLabel("Welcome");
+        DebugUIBuilder.instance.AddButton("Enter The Cave", LoadTheCave);
+        DebugUIBuilder.instance.AddButton("Quit", Quit);
+        DebugUIBuilder.instance.AddLabel("High Score: " + high_score);
+        /*DebugUIBuilder.instance.AddButton("Avatar Grab", LoadAvatarGrab);
         DebugUIBuilder.instance.AddButton("Custom Controllers", LoadCustomControllers);
         DebugUIBuilder.instance.AddButton("Custom Hands", LoadCustomHands);
         DebugUIBuilder.instance.AddButton("Debug UI", LoadDebugUI);
@@ -22,6 +31,7 @@ public class StartMenu : MonoBehaviour
         DebugUIBuilder.instance.AddButton("Locomotion", LoadLocomotion);
         DebugUIBuilder.instance.AddButton("Mixed Reality Capture", LoadMixedRealityCapture);
         DebugUIBuilder.instance.AddButton("OVR Overlay", LoadOVROverlay);
+        */
         DebugUIBuilder.instance.Show();
     }
 
@@ -34,11 +44,11 @@ public class StartMenu : MonoBehaviour
 
     IEnumerator ShowOverlayAndLoad(string sceneName)
     {
-        text.transform.position = vrRig.centerEyeAnchor.position + Vector3.ProjectOnPlane(vrRig.centerEyeAnchor.forward, Vector3.up).normalized * 3f;
-        overlay.enabled = true;
-        text.enabled = true;
+        //text.transform.position = vrRig.centerEyeAnchor.position + Vector3.ProjectOnPlane(vrRig.centerEyeAnchor.forward, Vector3.up).normalized * 3f;
+        //overlay.enabled = true;
+        //text.enabled = true;
         // Waiting to prevent "pop" to new scene
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         // Load Scene and wait til complete
         AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
         while(!asyncLoad.isDone)
@@ -49,6 +59,15 @@ public class StartMenu : MonoBehaviour
     }
 
     #region Scene Load Callbacks
+    void Quit()
+    {
+        Application.Quit();
+        Debug.Log("Game is exiting");
+    }
+    void LoadTheCave()
+    {
+        LoadScene("TheCave");
+    }
     void LoadAvatarGrab()
     {
         LoadScene("AvatarGrab");
